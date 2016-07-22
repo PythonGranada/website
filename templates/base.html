@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+    <link rel="stylesheet" href="{% static 'css/python.css' %}">
+    <title>{{titulo}}</title>
+  </head>
+  <body>
+
+    <div class="site-container">
+      <div class="site-pusher">
+
+        <header class="header">
+
+          <a href="#" class="header__icon" id="header__icon"></a>
+          <a href="#" class="header__logo"><img src="{% static 'icons/logo.png' %}" id ="logo" /></a>
+
+          <nav class="menu">
+            {% include "links.html" %}
+          </nav>
+
+        </header>
+
+        <div class="site-content">
+          <div class="container">
+            {% block main %}{% endblock %}
+
+          </div> <!-- END container -->
+        </div> <!-- END site-content -->
+        <div class="site-cache" id="site-cache"></div>
+      </div> <!-- END site-pusher -->
+    </div> <!-- END site-container -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+	     (function($) {
+         $('#header__icon').click(function(e){
+			        e.preventDefault();
+			           $('body').toggleClass('with--sidebar');
+		             });
+
+                 $('#site-cache').click(function(e){
+                   $('body').removeClass('with--sidebar');
+                 });
+
+	              })(jQuery);
+              });
+              </script>
+  </body>
+</html>

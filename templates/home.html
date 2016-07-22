@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load markdown_deux_tags %}
+{% block main %}
+  <section class ="head">
+    <h1>Bienvenido a Python Granada</h1>
+    <span>La comunidad dedicada a Python en Granada y alrededores</span>
+
+    <div id = "event">
+      <h5>Nuestro proximo evento es: </h5>
+
+      <div class="container">
+        <div class="row">
+          <div class="three columns" id= "date">
+            {{event.fecha}}
+          </div>
+          <div class="nine columns">
+            <h5>{{event.nombre}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="value-props row">
+      <div class="three columns value-prop">
+         <img class="value-img" src="{% static 'svg/laptop-1.svg' %}"><br>
+         ¿Eres nuevo en Python o quieres aprender aún más? Con ayuda de nuestros
+         talleres y la colaboración de otros compañeros dominarás Python en un
+         abrir y cerrar de ojos.
+       </div>
+       <div class="three columns value-prop">
+         <img class="value-img" src="{% static 'svg/chat-1.svg' %}"><br>
+         Asiste a las ponencias que organizamos para aprender todos los
+         secretos de Python que otros programadores han descubierto.
+         O aún mejor: ¡Imparte una tú frente a tus amigos y compañeros !
+       </div>
+       <div class="three columns value-prop">
+         <img class="value-img" src="{% static 'svg/settings-1.svg' %}"><br>
+         Participa en los retos de Python que proponemos y gana puntos y
+          premios por ello. Además, podrás comparar tu puntuación con la
+          de los demás y evaluar tus progresos.
+        </div>
+       <div class="three columns value-prop">
+         <img class="value-img" src="{% static 'svg/people.svg' %}"><br>
+         Conoce a otros programadores de Python. Juntos podremos aprender
+         mucho más rápido y descubrir conceptos que de otra forma nos
+          pasarían desapercibidos.
+       </div>
+    </div>
+  </section>
+{% endblock %}
