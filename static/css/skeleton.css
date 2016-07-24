@@ -6,26 +6,6 @@
 * http://www.opensource.org/licenses/mit-license.php
 * 12/29/2014
 */
-
-
-/* Table of contents
-––––––––––––––––––––––––––––––––––––––––––––––––––
-- Grid
-- Base Styles
-- Typography
-- Links
-- Buttons
-- Forms
-- Lists
-- Code
-- Tables
-- Spacing
-- Utilities
-- Clearing
-- Media Queries
-*/
-
-
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
@@ -361,6 +341,9 @@ form {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .u-full-width {
   width: 100%;
+  box-sizing: border-box; }
+.u-half-width {
+  width: 48%;
   box-sizing: border-box; }
 .u-max-full-width {
   max-width: 100%;
