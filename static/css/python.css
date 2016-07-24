@@ -147,6 +147,10 @@ a {
   font-size: 400%;
 }
 
+.main{
+  margin-top: 2em;
+}
+
 .value-props {
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -159,13 +163,19 @@ a {
   width: 60%; height: auto
 }
 
+#date{
+  padding-top: 0.5em;
+}
+
 #event{
   margin-top: 10em;
 }
 
-#date{
-  padding-top: 0.5em;
+#event-name{
+  text-align: center;
 }
+
+
 
 #logo{
   margin-top: 0.4em;
