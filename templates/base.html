@@ -12,47 +12,36 @@
     <title>{{titulo}}</title>
   </head>
   <body>
-
     <div class="site-container">
       <div class="site-pusher">
-
         <header class="header">
-
           <a href="#" class="header__icon" id="header__icon"></a>
           <a href="#" class="header__logo"><img src="{% static 'icons/logo.png' %}" id ="logo" /></a>
-
           <nav class="menu">
             {% include "links.html" %}
           </nav>
-
         </header>
-
         <div class="site-content">
           <div class="container">
             {% block main %}{% endblock %}
-
-          </div> <!-- END container -->
-        </div> <!-- END site-content -->
+          </div>
+        </div>
         <div class="site-cache" id="site-cache"></div>
-      </div> <!-- END site-pusher -->
-    </div> <!-- END site-container -->
-
-
+      </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript">
-    $(document).ready(function(){
-	     (function($) {
-         $('#header__icon').click(function(e){
-			        e.preventDefault();
-			           $('body').toggleClass('with--sidebar');
-		             });
-
-                 $('#site-cache').click(function(e){
-                   $('body').removeClass('with--sidebar');
-                 });
-
-	              })(jQuery);
-              });
-              </script>
+      $(document).ready(function(){
+	      (function($) {
+          $('#header__icon').click(function(e){
+			      e.preventDefault();
+			      $('body').toggleClass('with--sidebar');
+		      });
+          $('#site-cache').click(function(e){
+            $('body').removeClass('with--sidebar');
+          });
+        })(jQuery);
+      });
+    </script>
   </body>
 </html>
