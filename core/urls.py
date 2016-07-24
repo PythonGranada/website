@@ -5,11 +5,11 @@ from django.conf.urls import include, url
 from django.conf import settings
 from django.conf.urls.static import static
 
-import charlas.views as charlas
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', charlas.HomeView.as_view(), name="home"),
+    url(r'^', include('charlas.urls'), name="home"),
     url(r'^markdownx/', include('markdownx.urls')),
 ]
 
