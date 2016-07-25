@@ -3,7 +3,7 @@
 Este repositorio está destinado a la construcción de la página de Python-Granada usando Django.
 
 ## Progreso
-- [ x ] Noticias
+- [x] Noticias
 - [ x ] Envío de charlas
 - [ ] Ponentes
 - [ ] kung-fu
