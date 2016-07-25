@@ -5,11 +5,9 @@
   <section class ="head">
     <h1>Bienvenido a Python Granada</h1>
     <span>La comunidad dedicada a Python en Granada y alrededores</span>
-
     <div id = "event">
       <h5>Nuestro proximo evento es: </h5>
-
-      <div class="container">
+      <div class="container" id ="event-info">
         <div class="row">
           <div class="three columns" id= "date">
             {{event.fecha}}
@@ -20,7 +18,6 @@
         </div>
       </div>
     </div>
-
     <div class="value-props row">
       <div class="three columns value-prop">
          <img class="value-img" src="{% static 'svg/laptop-1.svg' %}"><br>
