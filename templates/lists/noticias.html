@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main %}
+  {% for noticia in noticias  %}
+  <div class="container loop-charla" >
+    <div class="row">
+      <div class="three columns" id= "date">
+        {{noticia.fecha}}
+      </div>
+      <div class="nine columns" id ="event-name">
+        <h5><a href="{% url 'ndetail' noticia.slug %}">{{noticia.nombre}}</a></h5>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}
