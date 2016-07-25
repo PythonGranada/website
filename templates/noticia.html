@@ -1,0 +1,31 @@
+{% extends "base.html" %}{% load markdown_deux_tags %}
+{% block main %}
+<div class="container">
+  <div class="row">
+    <div class="twelve columns">
+      <h1>{{noticia.nombre}}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="twelve columns">
+      {{noticia.cuerpo|markdown}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="one columns">
+      <i class="icon-twitter"></i>
+    </div>
+    <div class="one columns">
+      <i class="demo-icon icon-facebook-official"></i>
+    </div>
+    <div class="one columns">
+      <i class="demo-icon icon-gplus-squared"></i>
+    </div>
+    <div class="offset-by-four columns" id = "fecha-noticia">
+      Publicado el {{noticia.created}}
+    </div>
+  </div>
+</div>
+{% endblock %}
