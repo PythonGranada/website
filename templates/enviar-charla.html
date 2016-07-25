@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block main %}
-
 <div class="container main">
   <form action="" method="post">
     {% csrf_token %}
@@ -25,20 +24,14 @@
     <input class="button-primary" type="submit" value="Enviar">
   </form>
 </div>
-
 <div class="container">
   {% if form.errors %}
       {% for field in form %}
           {% for error in field.errors %}
               <div class="alert alert-error">
-                  <strong>{{ error|escape }}</strong>
+                <strong>{{field.name.capitalize}}</strong>: {{ error|escape }}
               </div>
           {% endfor %}
-      {% endfor %}
-      {% for error in form.non_field_errors %}
-          <div class="alert alert-error">
-              <strong>{{ error|escape }}</strong>
-          </div>
       {% endfor %}
   {% endif %}
 </div>
