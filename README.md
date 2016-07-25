@@ -4,7 +4,7 @@ Este repositorio está destinado a la construcción de la página de Python-Gran
 
 ## Progreso
 - [x] Noticias
-- [ x ] Envío de charlas
+- [x] Envío de charlas
 - [ ] Ponentes
 - [ ] kung-fu
 - [ ] Integrar la lista de correo
