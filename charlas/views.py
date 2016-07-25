@@ -6,7 +6,7 @@ from .forms import CharlaForm
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import HttpResponseRedirect
 #ClassViews
-from django.views.generic import DetailView, FormView, TemplateView
+from django.views.generic import DetailView, FormView, TemplateView, ListView
 #external
 from .github_issue import create_issue
 
@@ -37,4 +37,19 @@ class FormularioView(FormView):
         body = resumen + "\n\n" + nombre + " - " + email
         create_issue(titulo, body)
 
+        #Return to the success_url
         return HttpResponseRedirect(reverse_lazy(self.get_success_url()))
+
+class NoticiaListView(ListView):
+    context_object_name = 'noticias'
+    model = Noticia
+    page_kwarg = 'page'
+    paginate_by = 10
+    template_name = 'lists/noticias.html'
+
+class NoticiaDetailView(DetailView):
+    model = Noticia
+    slug_field = 'slug'
+    #Nombre de la variable en la url que contiene el slug
+    slug_url_kwarg = 'slug'
+    template_name = 'noticia.html'
