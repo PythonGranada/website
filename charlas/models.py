@@ -28,6 +28,7 @@ class Ponente(models.Model):
     twitter = models.CharField(blank=True, null=True, max_length=100)
     facebook = models.CharField(blank=True, null=True, max_length=100)
     linkedin = models.CharField(blank=True, null=True, max_length=100)
+    documento = models.FileField(upload_to="charlas", blank = True, null = True)
 
     def __str__(self):
         return self.nombre
