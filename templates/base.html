@@ -13,7 +13,7 @@
     <title>{{titulo}}</title>
   </head>
   <body>
-    <div class="site-container">
+    <div class="site-container" id ="wrap">
       <div class="site-pusher">
         <header class="header">
           <a href="#" class="header__icon" id="header__icon"></a>
@@ -30,6 +30,23 @@
         <div class="site-cache" id="site-cache"></div>
       </div>
     </div>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="six columns">
+            <h5>Síguenos en nuestras redes sociales:</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="one columns">
+            <a href="https://twitter.com/python_granada"><i class="icon-twitter"></i></a>
+          </div>
+          <div class="one columns">
+            <a href="https://www.facebook.com/Pythongranada"><i class="demo-icon icon-facebook-official"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="{%static 'js/docready.min.js'%}"></script>
     <script type="text/javascript">
       docReady(function() {
@@ -46,5 +63,6 @@
         },true);
       });
     </script>
+    </div>
   </body>
 </html>
