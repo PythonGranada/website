@@ -153,3 +153,20 @@ STATICFILES_DIRS = [
 ]
 #STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+####
+"""
+Email conf is imported from secret.py
+"""
+
+from .secret import (EMAIL_BACKEND, EMAIL_HOST,
+                    EMAIL_HOST_USER,
+                    EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS)
+###
+
+EMAIL_BACKEND = EMAIL_BACKEND
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
+EMAIL_USE_TLS = EMAIL_USE_TLS

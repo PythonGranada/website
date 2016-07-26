@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^enviar/$', charlas.FormularioView.as_view(), name="enviar"),
     url(r'^noticias/$', charlas.NoticiaListView.as_view(), name="noticias"),
     url(r'^noticias/(?P<slug>[\w-]+)$', charlas.NoticiaDetailView.as_view(), name="ndetail"),
+    url(r'^ponentes/$', charlas.PonenteListView.as_view(), name="ponentes"),
+    url(r'^contacto/$', charlas.ContactoFormView.as_view(), name="contacto")
 ]

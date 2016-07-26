@@ -20,3 +20,14 @@ class Noticia(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Ponente(models.Model):
+    nombre = models.CharField(max_length=300)
+    contact = models.EmailField(blank=True, null=True)
+    charla = models.URLField(blank=True, null=True)
+    twitter = models.CharField(blank=True, null=True, max_length=100)
+    facebook = models.CharField(blank=True, null=True, max_length=100)
+    linkedin = models.CharField(blank=True, null=True, max_length=100)
+
+    def __str__(self):
+        return self.nombre

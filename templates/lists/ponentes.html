@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block main %}
+  <div class="container main">
+    <h2>Ponentes</h2>
+  </div>
+  <div class="container">
+    {% for group in ponentes %}
+      <div class="row">
+        {% for ponente in group %}
+            <div class="four columns">{{ ponente.nombre }}</div>
+        {% endfor %}
+      </div>
+{% endfor %}
+  </div>
+{% endblock %}
