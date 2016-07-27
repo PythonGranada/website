@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/python.css' %}">
     <link rel="stylesheet" href="{% static 'css/animation.css' %}"><!--[if IE 7]><link rel="stylesheet" href="/static/css/fontello-ie7.css"><![endif]-->
     <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
+    {% block head %}{% endblock %}
     <title>{{titulo}}</title>
   </head>
   <body>
@@ -17,7 +18,7 @@
       <div class="site-pusher">
         <header class="header">
           <a href="#" class="header__icon" id="header__icon"></a>
-          <a href="#" class="header__logo"><img src="{% static 'icons/logo.png' %}" id ="logo" /></a>
+          <a href="{% url 'home' %}" class="header__logo"><img src="{% static 'icons/logo.png' %}" id ="logo" /></a>
           <nav class="menu">
             {% include "links.html" %}
           </nav>

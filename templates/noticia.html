@@ -1,4 +1,9 @@
-{% extends "base.html" %}{% load markdown_deux_tags %}
+{% extends "base.html" %}{% load markdown_deux_tags %}{% load staticfiles %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/markdown.css' %}" media="screen" title="no title" charset="utf-8">
+{% endblock %}
+
 {% block main %}
 <div class="container">
   <div class="row">
