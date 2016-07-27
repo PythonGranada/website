@@ -25,8 +25,11 @@ class HomeView(DetailView):
         now = timezone.now()
         query = Noticia.objects.all().last()
         #Comprobar que el evento no haya pasado
-        date = query.fecha
-        if now >= date:
+        if query:
+            date = query.fecha
+            if now >= date:
+                return Noticia.objects.none()
+        else:
             return Noticia.objects.none()
         return query
 
