@@ -1,0 +1,35 @@
+h1{
+  font-size: 400%;
+}
+h2{
+  font-size: 300%;
+}
+h3{
+  font-size: 200%;
+}
+h4{
+  font-size: 1500%;
+}
+h5{
+  font-size: 150%;
+}
+h6{
+  font-size: 150%;
+}
+
+a{
+  color: #1EAEDB;
+}
+
+footer{
+  margin-top: 4em;
+}
+
+nav a{
+  color: #fff;
+}
+
+footer a{
+  color: #fff;
+  margin-top: 4em;
+}
