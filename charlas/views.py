@@ -61,6 +61,7 @@ class NoticiaListView(ListView):
     page_kwarg = 'page'
     paginate_by = 10
     template_name = 'lists/noticias.html'
+    ordering = "-fecha"
 
 class NoticiaDetailView(DetailView):
     model = Noticia
