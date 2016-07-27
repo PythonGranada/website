@@ -23,7 +23,7 @@ class HomeView(DetailView):
 
     def get_object(self, queryset=None):
         now = timezone.now()
-        query = Noticia.objects.all().last()
+        query = Noticia.objects.all().order_by("-created")[0]
         #Comprobar que el evento no haya pasado
         if query:
             date = query.fecha

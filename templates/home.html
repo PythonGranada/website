@@ -14,7 +14,7 @@
             {{event.fecha}}
           </div>
           <div class="nine columns" id ="event-name">
-            <h5>{{event.nombre}}</h5>
+            <h5><a href="{% url 'ndetail' event.slug %}">{{event.nombre}}</a></h5>
           </div>
         </div>
         {% else %}

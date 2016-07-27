@@ -20,13 +20,13 @@
 
   <div class="row">
     <div class="one columns">
-      <i class="icon-twitter"></i>
+      <a href="https://twitter.com/intent/tweet?text={{noticia.nombre}}&url=zanklord.webfactional.com/{{ request.path }}"><i class="icon-twitter"></i></a>
     </div>
     <div class="one columns">
-      <i class="demo-icon icon-facebook-official"></i>
+      <a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=zanklord.webfactional.com/{{ request.path }}[title]={{noticia.nombre}}"><i class="demo-icon icon-facebook-official"></i></a>
     </div>
     <div class="one columns">
-      <i class="demo-icon icon-gplus-squared"></i>
+      <a href="https://plus.google.com/share?url=zanklord.webfactional.com/{{ request.path }}/"><i class="demo-icon icon-gplus-squared"></i></a> 
     </div>
     <div class="offset-by-four columns" id = "fecha-noticia">
       Publicado el {{noticia.created}}

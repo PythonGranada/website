@@ -206,6 +206,10 @@ footer {
   color: #1EAEDB;
 }
 
+#event-info a:hover{
+  text-decoration:underline;
+}
+
 #event-name{
   background-color: #dee7ed;
   color:#48afdb;
