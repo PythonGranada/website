@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from django.conf import settings
 from django.shortcuts import render
 #Redirects and urls
@@ -20,7 +22,14 @@ class HomeView(DetailView):
     context_object_name="event"
 
     def get_object(self, queryset=None):
-        return Noticia.objects.all().last()
+        now = timezone.now()
+        query = Noticia.objects.all().last()
+        #Comprobar que el evento no haya pasado
+        date = query.fecha
+        if now >= date:
+            return Noticia.objects.none()
+        return query
+
 
 #Vista para mandar charlas como issue en el repositorio
 #de python-granada

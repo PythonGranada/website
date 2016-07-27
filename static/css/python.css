@@ -201,6 +201,10 @@ footer {
   margin-top: 10em;
 }
 
+#event a{
+  color: #1EAEDB;
+}
+
 #event-name{
   background-color: #dee7ed;
   color:#48afdb;

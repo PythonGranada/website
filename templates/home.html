@@ -8,6 +8,7 @@
     <div id = "event">
       <h5>Nuestro proximo evento es: </h5>
       <div class="container" id ="event-info">
+        {% if event %}
         <div class="row">
           <div class="three columns" id= "date">
             {{event.fecha}}
@@ -16,6 +17,10 @@
             <h5>{{event.nombre}}</h5>
           </div>
         </div>
+        {% else %}
+          <p>Estamos preparando nuestro siguiente evento, si quieres recibir todas
+          las noticias, puedes suscribirte a la <a href="https://lists.es.python.org/listinfo/granada">lista de correo</a> de python granada</p>
+        {% endif %}
       </div>
     </div>
     <div class="value-props row">
