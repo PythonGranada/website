@@ -1,28 +1,33 @@
 {% extends "base.html" %}
 
-{% block main %}
+{% block content %}
 <div class="container main">
   <form action="" method="post">
     {% csrf_token %}
     <div class="row">
-      <div class="six columns">
+      <div class="input-field col s6">
         <label for="{{ form.email.id_for_label }}">Correo Electrónico*:</label>
         {{ form.email }}
       </div>
-      <div class="six columns">
+      <div class="input-field col s6">
         <label for="{{ form.nombre.id_for_label }}">Nombre de contacto*:</label>
         {{ form.nombre }}
       </div>
     </div>
     <div class="row">
-      <div class="six colums">
+      <div class="input-field col s6">
         <label for="{{ form.website.id_for_label }}">Dirección web:</label>
         {{ form.website }}
       </div>
     </div>
-    <label for="{{ form.mensaje.id_for_label }}">Mensaje*:</label>
-        {{ form.mensaje }}
-    <input class="button-primary" type="submit" value="Enviar">
+    <div class="row">
+        <div class="input-field col s12">
+          <label for="{{ form.mensaje.id_for_label }}">Mensaje*:</label>
+          {{ form.mensaje }}
+        </div>
+    </div>
+
+    <input class="waves-effect waves-light btn" type="submit" value="Enviar">
   </form>
 </div>
 <div class="container">

@@ -1,69 +1,64 @@
 {% load staticfiles %}<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">-->
-    <link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/skeleton.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/python.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animation.css' %}"><!--[if IE 7]><link rel="stylesheet" href="/static/css/fontello-ie7.css"><![endif]-->
-    <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
-    {% block head %}{% endblock %}
-    <title>{{titulo}}</title>
-  </head>
-  <body>
-    <div class="site-container" id ="wrap">
-      <div class="site-pusher">
-        <header class="header">
-          <a href="#" class="header__icon" id="header__icon"></a>
-          <a href="{% url 'home' %}" class="header__logo"><img src="{% static 'icons/logo.png' %}" id ="logo" /></a>
-          <nav class="menu">
-            {% include "links.html" %}
-          </nav>
-        </header>
-        <div class="site-content">
-          <div class="container">
-            {% block main %}{% endblock %}
-          </div>
-        </div>
-        <div class="site-cache" id="site-cache"></div>
-      </div>
-    </div>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="six columns">
-            <h5>Síguenos en nuestras redes sociales:</h5>
-          </div>
-        </div>
-        <div class="row">
-          <div class="one columns">
-            <a href="https://twitter.com/python_granada"><i class="icon-twitter"></i></a>
-          </div>
-          <div class="one columns">
-            <a href="https://www.facebook.com/Pythongranada"><i class="demo-icon icon-facebook-official"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="{%static 'js/docready.min.js'%}"></script>
-    <script type="text/javascript">
-      docReady(function() {
-        var headerIcon = document.getElementById("header__icon");
-        headerIcon.addEventListener("click",function(e){
-            e.preventDefault();
-            document.getElementsByTagName('BODY')[0].classList.add('with--sidebar');
-        },true);
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
 
-        var siteCache = document.getElementById("site-cache");
-        siteCache.addEventListener("click",function(e){
-            e.preventDefault();
-            document.getElementsByTagName('BODY')[0].classList.remove('with--sidebar');
-        },true);
-      });
-    </script>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href={% static 'css/materialize.min.css' %} type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href={% static 'css/style.css' %} type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="{% static 'css/animation.css' %}"><!--[if IE 7]><link rel="stylesheet" href="/static/css/fontello-ie7.css"><![endif]-->
+  <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
+</head>
+<body>
+  <nav class="indigo lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="{% static 'icons/logo.png' %}" alt="" /></a>
+      <ul class="right hide-on-med-and-down">
+        {% include "links.html" %}
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        {% include "links.html" %}
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
+  </nav>
+
+  <div class="container">
+    <div class="section">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+
+  <footer class="page-footer indigo">
+    <div class="container">
+      <div class="row">
+        <div class="col l4 s12">
+          <h5 class="white-text">Contacto</h5>
+            <div class="row">
+              <div class="col s3">
+                <a class="white-text" href="https://twitter.com/python_granada"><i class="icon-twitter"></i></a>
+              </div>
+              <div class="col s3">
+                <a class="white-text" href="https://www.facebook.com/Pythongranada"><i class="demo-icon icon-facebook-official"></i></a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        2016 © Copyright Python Granada
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.min.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
   </body>
 </html>

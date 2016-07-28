@@ -9,10 +9,7 @@ class CharlaForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(CharlaForm, self).__init__(*args, **kwargs)
         #Add html class to fields
-        self.fields['nombre'].widget.attrs['class'] = 'u-full-width'
-        self.fields['titulo'].widget.attrs['class'] = 'u-half-width'
-        self.fields['email'].widget.attrs['class'] = 'u-full-width'
-        self.fields['resumen'].widget.attrs['class'] = 'u-full-width'
+        self.fields['resumen'].widget.attrs['class'] = 'materialize-textarea'
 
 class ContactoForm(forms.Form):
     nombre = forms.CharField()
@@ -23,7 +20,4 @@ class ContactoForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(ContactoForm, self).__init__(*args, **kwargs)
         #Add html class to fields
-        self.fields['nombre'].widget.attrs['class'] = 'u-full-width'
-        self.fields['website'].widget.attrs['class'] = 'u-half-width'
-        self.fields['email'].widget.attrs['class'] = 'u-full-width'
-        self.fields['mensaje'].widget.attrs['class'] = 'u-full-width'
+        self.fields['mensaje'].widget.attrs['class'] = 'materialize-textarea'

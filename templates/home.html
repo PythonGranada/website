@@ -1,53 +1,85 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load markdown_deux_tags %}
-{% block main %}
-  <section class ="head">
-    <h1>Bienvenido a Python Granada</h1>
-    <span>La comunidad dedicada a Python en Granada y alrededores</span>
-    <div id = "event">
-      <h5>Nuestro proximo evento es: </h5>
-      <div class="container" id ="event-info">
-        {% if event %}
-        <div class="row">
-          <div class="three columns" id= "date">
-            {{event.fecha}}
-          </div>
-          <div class="nine columns" id ="event-name">
-            <h5><a href="{% url 'ndetail' event.slug %}">{{event.nombre}}</a></h5>
-          </div>
-        </div>
-        {% else %}
-          <p>Estamos preparando nuestro siguiente evento, si quieres recibir todas
-          las noticias, puedes suscribirte a la <a href="https://lists.es.python.org/listinfo/granada">lista de correo</a> de python granada</p>
-        {% endif %}
+
+{% block news %}
+<div id = "event">
+  <h5>Nuestro proximo evento es: </h5>
+  <div class="container" id ="event-info">
+    {% if event %}
+    <div class="row">
+      <div class="three columns" id= "date">
+        {{event.fecha}}
+      </div>
+      <div class="nine columns" id ="event-name">
+        <h5><a href="{% url 'ndetail' event.slug %}">{{event.nombre}}</a></h5>
       </div>
     </div>
-    <div class="value-props row">
-      <div class="three columns value-prop">
-         <img class="value-img" src="{% static 'svg/laptop-1.svg' %}"><br>
-         ¿Eres nuevo en Python o quieres aprender aún más? Con ayuda de nuestros
-         talleres y la colaboración de otros compañeros dominarás Python en un
-         abrir y cerrar de ojos.
-       </div>
-       <div class="three columns value-prop">
-         <img class="value-img" src="{% static 'svg/chat-1.svg' %}"><br>
-         Asiste a las ponencias que organizamos para aprender todos los
-         secretos de Python que otros programadores han descubierto.
-         O aún mejor: ¡Imparte una tú frente a tus amigos y compañeros !
-       </div>
-       <div class="three columns value-prop">
-         <img class="value-img" src="{% static 'svg/settings-1.svg' %}"><br>
-         Participa en los retos de Python que proponemos y gana puntos y
-          premios por ello. Además, podrás comparar tu puntuación con la
-          de los demás y evaluar tus progresos.
-        </div>
-       <div class="three columns value-prop">
-         <img class="value-img" src="{% static 'svg/people.svg' %}"><br>
-         Conoce a otros programadores de Python. Juntos podremos aprender
-         mucho más rápido y descubrir conceptos que de otra forma nos
-          pasarían desapercibidos.
-       </div>
+    {% else %}
+      <p>Estamos preparando nuestro siguiente evento, si quieres recibir todas
+      las noticias, puedes suscribirte a la <a href="https://lists.es.python.org/listinfo/granada">lista de correo</a> de python granada</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
+    <h1 class="header center">Python Granada</h1>
+    <div class="row center">
+      <h5 class="header col s12 light">La comunidad dedicada a Pythonen Granada y alrededores.</h5>
     </div>
-  </section>
+    <br><br>
+
+  </div>
+</div>
+<!--   Icon Section   -->
+<div class="row">
+  <div class="col s12 m3">
+    <div class="icon-block">
+      <h2 class="center light-blue-text"><i class="material-icons">school</i></h2>
+      <h5 class="center">TALLERES</h5>
+
+      <p class="light">¿Eres nuevo en Python o quieres aprender aún más? Con ayuda de nuestros
+      talleres y la colaboración de otros compañeros dominarás Python en un
+      abrir y cerrar de ojos.</p>
+    </div>
+  </div>
+
+  <div class="col s12 m3">
+    <div class="icon-block">
+      <h2 class="center light-blue-text"><i class="material-icons">chat</i></h2>
+      <h5 class="center">PONENCIAS</h5>
+
+      <p class="light">Asiste a las ponencias que organizamos para aprender todos los
+      secretos de Python que otros programadores han descubierto.
+      O aún mejor: ¡Imparte una tú frente a tus amigos y compañeros !</p>
+    </div>
+  </div>
+
+  <div class="col s12 m3">
+    <div class="icon-block">
+      <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+      <h5 class="center">DESAFÍOS</h5>
+
+      <p class="light">Participa en los retos de Python que proponemos y gana
+        puntos, podrás comparar tu puntuación con la
+        de los demás y evaluar tus progresos.</p>
+    </div>
+  </div>
+
+  <div class="col s12 m3">
+    <div class="icon-block">
+      <h2 class="center light-blue-text"><i class="material-icons">people</i></h2>
+      <h5 class="center">CONOCE GENTE</h5>
+
+      <p class="light">Conoce a otros programadores de Python. Juntos podremos aprender
+      mucho más rápido y descubrir conceptos que de otra forma nos
+       pasarían desapercibidos.</p>
+    </div>
+  </div>
+</div>
 {% endblock %}
