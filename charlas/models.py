@@ -4,6 +4,7 @@ import datetime
 from markdownx.models import MarkdownxField
 #create the SlugField
 from django.utils.text import slugify
+from sorl.thumbnail import ImageField
 #Crop images
 
 # Create your models here.
@@ -33,7 +34,7 @@ class Charla(models.Model):
 
 class Ponente(models.Model):
     nombre = models.CharField(max_length=300)
-    imagen = models.ImageField(upload_to="ponentes/profile")
+    imagen = ImageField(upload_to="ponentes/profile")
     contact = models.EmailField(blank=True, null=True)
     charlas = models.ManyToManyField(Charla, blank=True, null=True)
     twitter = models.CharField(blank=True, null=True, max_length=100)
