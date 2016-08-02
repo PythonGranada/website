@@ -4,6 +4,7 @@ import datetime
 from markdownx.models import MarkdownxField
 #create the SlugField
 from django.utils.text import slugify
+#Crop images
 
 # Create your models here.
 class Noticia(models.Model):
@@ -21,14 +22,25 @@ class Noticia(models.Model):
     def __str__(self):
         return self.nombre
 
+class Charla(models.Model):
+    evento = models.ForeignKey(Noticia)
+    documento = models.FileField(upload_to="charlas", blank = True, null = True)
+    url = models.URLField(blank=True, null=True)
+    nombre = models.CharField(blank=True, max_length=100)
+
+    def __str__(self):
+        return self.nombre
+
 class Ponente(models.Model):
     nombre = models.CharField(max_length=300)
+    imagen = models.ImageField(upload_to="ponentes/profile")
     contact = models.EmailField(blank=True, null=True)
-    charla = models.URLField(blank=True, null=True)
+    charlas = models.ManyToManyField(Charla, blank=True, null=True)
     twitter = models.CharField(blank=True, null=True, max_length=100)
     facebook = models.CharField(blank=True, null=True, max_length=100)
     linkedin = models.CharField(blank=True, null=True, max_length=100)
-    documento = models.FileField(upload_to="charlas", blank = True, null = True)
+    website = models.URLField(blank=True, null=True)
+
 
     def __str__(self):
         return self.nombre

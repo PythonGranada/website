@@ -23,15 +23,16 @@ class HomeView(DetailView):
 
     def get_object(self, queryset=None):
         now = timezone.now()
-        query = Noticia.objects.all().order_by("-created")[0]
+        query = Noticia.objects.all().order_by("-fecha")[0]
         #Comprobar que el evento no haya pasado
-        if query:
+        if query: #SI hay almenos una noticia
             date = query.fecha
-            if now >= date:
-                return Noticia.objects.none()
+            if now >= date: #si la fecha es posterior a la del evento
+                return Noticia.objects.none() #No devuelve nada
         else:
-            return Noticia.objects.none()
-        return query
+            return Noticia.objects.none() #Nada si no hay eventos
+
+        return query #devuelve el evento si la fecha actual es anterior
 
 
 #Vista para mandar charlas como issue en el repositorio
@@ -83,6 +84,13 @@ class PonenteListView(ListView):
         query = self.model.objects.all()
         queryset = self.grouped(query, 4)
         return queryset
+
+class PonenteDetailView(DetailView):
+    model = Ponente
+    slug_field = 'pk'
+    slug_url_kwarg = 'pk'
+    template_name = 'ponente.html'
+    context_object_name = "ponente"
 
 #Manejar formulario de contacto
 class ContactoFormView(FormView):

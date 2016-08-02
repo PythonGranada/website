@@ -1,15 +1,32 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% load staticfiles %}{% load thumbnail %}
 {% block content %}
-  <div class="container main">
-    <h2>Ponentes</h2>
+  <div class="row">
+    <div class="col s12 center">
+      <h2>Ponentes</h2>
+    </div>
   </div>
-  <div class="container">
-    {% for group in ponentes %}
-      <div class="row">
-        {% for ponente in group %}
-            <div class="four columns">{{ ponente.nombre }}</div>
-        {% endfor %}
+  {% for group in ponentes %}
+    <div class="row">
+      {% for ponente in group %}
+      <div class="col s12 m3">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s4 m4">
+              {% thumbnail ponente.imagen "128x128" crop="center" as im %}
+              <img class="responsive-img" src="{{ im.url }}">
+              {% empty %}
+              <img class="responsive-img" src="{% static 'icons/anonymous.png' %}">
+              {% endthumbnail %}
+            </div>
+            <div class="col s8 m8">
+              <span class="black-text">
+                <a href="{% url 'ponente' ponente.pk %}">{{ponente.nombre}}</a>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-{% endfor %}
-  </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
 {% endblock %}

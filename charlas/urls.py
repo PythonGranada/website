@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^noticias/$', charlas.NoticiaListView.as_view(), name="noticias"),
     url(r'^noticias/(?P<slug>[\w-]+)$', charlas.NoticiaDetailView.as_view(), name="ndetail"),
     url(r'^ponentes/$', charlas.PonenteListView.as_view(), name="ponentes"),
+    url(r'^ponentes/(?P<pk>\d+)$', charlas.PonenteDetailView.as_view(), name ="ponente"),
     url(r'^contacto/$', charlas.ContactoFormView.as_view(), name="contacto")
 ]
