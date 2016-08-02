@@ -2,11 +2,11 @@
   <form action="" method="post">
     {% csrf_token %}
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s4">
         <label for="{{ form.email.id_for_label }}">Correo Electrónico</label>
         {{ form.email }}
       </div>
-      <div class="input-field col s6">
+      <div class="input-field col s4 offset-s2">
         <label for="{{ form.nombre.id_for_label }}">Nombre de contacto</label>
         {{ form.nombre }}
       </div>

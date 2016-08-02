@@ -1,36 +1,30 @@
 {% extends "base.html" %}{% load markdown_deux_tags %}{% load staticfiles %}
 
-{% block head %}
-  <link rel="stylesheet" href="{% static 'css/markdown.css' %}" media="screen" title="no title" charset="utf-8">
-{% endblock %}
-
 {% block content %}
-<div class="container">
   <div class="row">
-    <div class="twelve columns">
+    <div class="col s12 l6 offset-l3">
       <h1>{{noticia.nombre}}</h1>
     </div>
   </div>
 
   <div class="row">
-    <div class="twelve columns">
+    <div class="col s12 l6 offset-l3">
       {{noticia.cuerpo|markdown}}
     </div>
   </div>
 
   <div class="row">
-    <div class="one columns">
-      <a href="https://twitter.com/intent/tweet?text={{noticia.nombre}}&url=zanklord.webfactional.com/{{ request.path }}"><i class="icon-twitter"></i></a>
+    <div class="col s1 offset-l3">
+      <a class="blue-text" href="https://twitter.com/intent/tweet?text={{noticia.nombre}}&url=zanklord.webfactional.com/{{ request.path }}"><i class="icon-twitter"></i></a>
     </div>
-    <div class="one columns">
-      <a href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=zanklord.webfactional.com/{{ request.path }}[title]={{noticia.nombre}}"><i class="demo-icon icon-facebook-official"></i></a>
+    <div class="col s1">
+      <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=zanklord.webfactional.com/{{ request.path }}[title]={{noticia.nombre}}"><i class="demo-icon icon-facebook-official"></i></a>
     </div>
-    <div class="one columns">
-      <a href="https://plus.google.com/share?url=zanklord.webfactional.com/{{ request.path }}/"><i class="demo-icon icon-gplus-squared"></i></a>
+    <div class="col s1">
+      <a  class="red-text" href="https://plus.google.com/share?url=zanklord.webfactional.com/{{ request.path }}/"><i class="demo-icon icon-gplus-squared"></i></a>
     </div>
-    <div class="offset-by-four columns" id = "fecha-noticia">
+    <div class="col s4">
       Publicado el {{noticia.created}}
     </div>
   </div>
-</div>
 {% endblock %}

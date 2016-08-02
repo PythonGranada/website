@@ -1,0 +1,46 @@
+{% extends "base.html" %}{% load thumbnail %}{% load staticfiles %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m4">
+        <h2>{{ponente.nombre}}</h2>
+      </div>
+      <div class="col s12 m4 offset-m4">
+        {% thumbnail ponente.imagen "100x100" crop="center" as im %}
+        <img class="responsive-img" src="{{ im.url }}" style="margin-top:1em;">
+        {% empty %}
+        <img class="responsive-img" src="{% static 'icons/anonymous.png' %}" style="margin-top:1em;">
+        {% endthumbnail %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        {% if ponente.website %}<a class="black-text" href="{{ponente.website}}"><i class="material-icons">http</i></a>{% endif %}
+        {% if ponente.twitter %}<a class="black-text" href="{{ponente.twitter}}"><i class="icon-twitter"></i></a>{% endif %}
+        {% if ponente.facebook %}<a class="black-text" href="{{ponente.facebook}}"><i class="demo-icon icon-facebook-official"></i></a>{% endif %}
+      </div>
+    </div>
+
+    {% if ponente.charlas %}
+    <div class="row">
+      <div class="col s12 m8">
+        <ul class="collection">
+          {% for charla in ponente.charlas.all  %}
+          <li class="collection-item">
+            <div>
+              {{charla.nombre}}
+              <span class="secondary-content">
+                {% if charla.documento %}<a href="/media/{{charla.documento}}"><i class="material-icons">file_download</i></a>{% endif %}
+                {% if charla.url %}<a href="#!"><i class="material-icons">ondemand_video</i></a>{% endif %}
+              </span>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+  </div>
+
+{% endblock %}

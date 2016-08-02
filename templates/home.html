@@ -2,27 +2,6 @@
 {% load staticfiles %}
 {% load markdown_deux_tags %}
 
-{% block news %}
-<div id = "event">
-  <h5>Nuestro proximo evento es: </h5>
-  <div class="container" id ="event-info">
-    {% if event %}
-    <div class="row">
-      <div class="three columns" id= "date">
-        {{event.fecha}}
-      </div>
-      <div class="nine columns" id ="event-name">
-        <h5><a href="{% url 'ndetail' event.slug %}">{{event.nombre}}</a></h5>
-      </div>
-    </div>
-    {% else %}
-      <p>Estamos preparando nuestro siguiente evento, si quieres recibir todas
-      las noticias, puedes suscribirte a la <a href="https://lists.es.python.org/listinfo/granada">lista de correo</a> de python granada</p>
-    {% endif %}
-  </div>
-</div>
-{% endblock %}
-
 {% block content %}
 
 <div class="section no-pad-bot" id="index-banner">
@@ -32,10 +11,39 @@
     <div class="row center">
       <h5 class="header col s12 light">La comunidad dedicada a Pythonen Granada y alrededores.</h5>
     </div>
-    <br><br>
-
   </div>
 </div>
+
+  {% if event %}
+  <div class="row">
+    <div class="col s12 center">
+      <h5>Nuestro proximo evento es: </h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 l6 offset-l3">
+      <div class="card horizontal ">
+        <div class="card-stacked">
+          <div class="card-content">
+            <p><strong>{{event.nombre}}</strong> - {{event.fecha}}</p>
+          </div>
+          <div class="card-action">
+            <a href="{% url  'ndetail' event.slug %}">Más Información</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="row">
+    <div class="col 12">
+      <p>Estamos preparando nuestro siguiente evento, si quieres recibir todas
+      las noticias, puedes suscribirte a la <a href="https://lists.es.python.org/listinfo/granada">lista de correo</a> de python granada</p>
+    </div>
+  </div>
+  {% endif %}
+
 <!--   Icon Section   -->
 <div class="row">
   <div class="col s12 m3">
@@ -82,4 +90,6 @@
     </div>
   </div>
 </div>
+
+{% include "colaboradores.html" %}
 {% endblock %}

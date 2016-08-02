@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="row">
-    <div class="twelve columns">
+    <div class="s12 center">
       <h2>Lista de Noticias</h2>
     </div>
   </div>
@@ -10,13 +10,13 @@
     <div class="card horizontal col s12 l6 offset-l3">
       <div class="card-stacked">
         <div class="card-content">
-          <p>{{noticia.nombre}} - {{noticia.fecha}}</p>
+          <p><strong>{{noticia.nombre}}</strong> - {{noticia.fecha}}</p>
         </div>
         <div class="card-action">
           <a href="{% url 'ndetail' noticia.slug %}">Más Información</a>
         </div>
       </div>
+    </div>
   </div>
-</div>
   {% endfor %}
 {% endblock %}
