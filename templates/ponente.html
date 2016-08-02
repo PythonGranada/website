@@ -31,8 +31,8 @@
             <div>
               {{charla.nombre}}
               <span class="secondary-content">
-                {% if charla.documento %}<a href="/media/{{charla.documento}}"><i class="material-icons">file_download</i></a>{% endif %}
-                {% if charla.url %}<a href="#!"><i class="material-icons">ondemand_video</i></a>{% endif %}
+                {% if charla.documento %}<a href="{{MEDIA_URL}}{{charla.documento}}"><i class="material-icons">file_download</i></a>{% endif %}
+                {% if charla.url %}<a href="{{charla.url}}"><i class="material-icons">ondemand_video</i></a>{% endif %}
               </span>
             </div>
           </li>
