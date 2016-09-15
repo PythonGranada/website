@@ -16,3 +16,5 @@ class NoticiaAdmin(admin.ModelAdmin):
 admin.site.register(Noticia, NoticiaAdmin)
 admin.site.register(Ponente)
 admin.site.register(Charla)
+admin.site.register(KungFu)
+admin.site.register(Progreso)

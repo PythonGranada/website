@@ -1,4 +1,5 @@
 {% extends "base.html" %}{% load thumbnail %}{% load staticfiles %}
+{% block title %}{{ponente.nombre}} | Python Granada{% endblock %}
 {% block content %}
   <div class="container">
     <div class="row">
@@ -6,10 +7,10 @@
         <h2>{{ponente.nombre}}</h2>
       </div>
       <div class="col s12 m4 offset-m4">
-        {% thumbnail ponente.imagen "100x100" crop="center" as im %}
-        <img class="responsive-img" src="{{ im.url }}" style="margin-top:1em;">
+        {% thumbnail ponente.imagen "128x128" crop="center" as im %}
+        <img class="circle responsive-img" src="{{ im.url }}" style="margin-top:1em;">
         {% empty %}
-        <img class="responsive-img" src="{% static 'icons/anonymous.png' %}" style="margin-top:1em;">
+        <img class="circle responsive-img" src="{% static 'icons/anonymous.png' %}" style="margin-top:1em;">
         {% endthumbnail %}
       </div>
     </div>
