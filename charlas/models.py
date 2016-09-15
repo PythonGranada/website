@@ -36,7 +36,7 @@ class Ponente(models.Model):
     nombre = models.CharField(max_length=300)
     imagen = ImageField(upload_to="ponentes/profile")
     contact = models.EmailField(blank=True, null=True)
-    charlas = models.ManyToManyField(Charla, blank=True, null=True)
+    charlas = models.ManyToManyField(Charla, blank=True)
     twitter = models.CharField(blank=True, null=True, max_length=100)
     facebook = models.CharField(blank=True, null=True, max_length=100)
     linkedin = models.CharField(blank=True, null=True, max_length=100)
@@ -45,3 +45,19 @@ class Ponente(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class KungFu(models.Model):
+    nombre = models.CharField(max_length=300)
+    descripcion = models.TextField(blank=True)
+    enlace = models.URLField(blank=True, null=True)
+    fecha = models.DateField(default=datetime.datetime.today)
+
+    def __str__(self):
+        return self.nombre
+
+class Progreso(models.Model):
+    puntuacion = models.PositiveIntegerField(blank=True, default = 0)
+    nombre = models.CharField(max_length=300)
+
+    def __str__(self):
+        return (self.nombre + " - " + str(self.puntuacion))

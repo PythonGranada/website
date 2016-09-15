@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^noticias/(?P<slug>[\w-]+)$', charlas.NoticiaDetailView.as_view(), name="ndetail"),
     url(r'^ponentes/$', charlas.PonenteListView.as_view(), name="ponentes"),
     url(r'^ponentes/(?P<pk>\d+)$', charlas.PonenteDetailView.as_view(), name ="ponente"),
-    url(r'^contacto/$', charlas.ContactoFormView.as_view(), name="contacto")
+    url(r'^contacto/$', charlas.ContactoFormView.as_view(), name="contacto"),
+    url(r'kung-fu/$', charlas.ProgresoListView.as_view(), name = "kung-fu"),
+    url(r'ejercicios/$', charlas.KungFuListView.as_view(), name = "ejercicios"),
 ]

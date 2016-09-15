@@ -10,7 +10,7 @@ from django.views.generic import DetailView, FormView, TemplateView, ListView
 #email
 from django.core.mail import send_mail
 #Models and forms
-from .models import Noticia, Ponente
+from .models import Noticia, Ponente, Progreso, KungFu
 from .forms import CharlaForm, ContactoForm
 #external
 from .github_issue import create_issue
@@ -116,3 +116,13 @@ class ContactoFormView(FormView):
 
         #Return to the success_url
         return HttpResponseRedirect(reverse_lazy(self.get_success_url()))
+
+class ProgresoListView(ListView):
+    context_object_name = 'personas'
+    model = Progreso
+    template_name = 'lists/kung-fu.html'
+
+class KungFuListView(ListView):
+    context_object_name = 'ejercicios'
+    model = KungFu
+    template_name = 'lists/ejercicios.html'
