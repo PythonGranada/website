@@ -1,0 +1,26 @@
+[
+  {
+    "name":"EJERCICIO 1",
+    "description": "¿Cómo determinas si una cadena de texto es una permutación de otra cadena?" ,
+    "url": "https://github.com/vterron/python-kung-fu/blob/master/00.py",
+    "date": "2015-09-18"
+  },
+  {
+    "name":"EJERCICIO 2",
+    "description": "Escribe una función que determina si una cadena de texto *no* tiene caracteres repetidos. Bonus: hazlo sin usar estructuras de datos (listas, diccionarios, etc) adicionales. Sí puedes usar cualquier función de la librería estándar.",
+    "url":"https://github.com/vterron/python-kung-fu/blob/master/01.py",
+    "date": "2015-09-18"
+  },
+  {
+    "name":"EJERCICIO 3",
+    "description": "Escribe una función que recibe una lista de enteros y devuelve el producto de todos sus elementos. Por ejemplo, si la entrada fuera [2, 3, 5], el valor que deberíamos devolver es 2 x 3 x 5 = 30. Pero hay una restricción: no puedes usar ni un bucle for ni tampoco un while. Pista: una de las formas más fáciles de hacerlo es posible gracias a una de las functiones built-in de Python.",
+    "url": "https://github.com/vterron/python-kung-fu/blob/master/02.py" ,
+    "date": "2015-10-16"
+  },
+  {
+    "name":"EJERCICIO 4",
+    "description": "Escribe una función que recibe dos cadenas de texto y devuelve True si una de las cadenas es rotación de la otra. Por ejemplo, las cadenas “abcd” y “bcda” son rotación una de la otra pero “abcd” y “acdb” no.",
+    "url": "https://github.com/vterron/python-kung-fu/blob/master/03.py",
+    "date": "2015-11-18"
+  }
+]
