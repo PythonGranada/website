@@ -126,3 +126,6 @@ class KungFuListView(ListView):
     context_object_name = 'ejercicios'
     model = KungFu
     template_name = 'lists/ejercicios.html'
+
+    def get_object(self):
+        return KungFu.objects.all().order_by("-fecha")
