@@ -14,8 +14,9 @@ Este repositorio esta sincronizado [con esta página](http://zanklord.webfaction
 ## Progreso
 - [x] Noticias
 - [x] Envío de charlas
-- [ ] Ponentes
-- [ ] kung-fu
+- [x] Ponentes
+- [x] kung-fu
 - [x] Integrar la lista de correo
 - [x] Contacto  
+- [ ] Galería de fotos
 - [ ] Interfaz para usuario, ahora uso el administrador de django
