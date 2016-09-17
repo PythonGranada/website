@@ -42,7 +42,7 @@
           {% for ejercicio in mes.list %}
           <ul class="collapsible" data-collapsible="expandable">
             <li>
-              <div class="collapsible-header">{{ejercicio.nombre}}</div>
+              <div class="collapsible-header">{{ejercicio.nombre|upper}}</div>
               <div class="collapsible-body">
                 <p>{{ejercicio.descripcion}}</p>
                 <p>
