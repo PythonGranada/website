@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Kung-Fu | Python Granada{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 ">
+      <div class="card ">
+            <div class="card-content">
+              <span class="card-title">¿QUÉ ES PYTHON KUNG-FU?</span>
+              <p>Los ejercicios de Python Kung-fu son sencillos ejercicios para
+                hacer en Python que tienen como objetivo aprender y dominar
+                distintos conceptos de Python y mejorar los que ya sabemos.
+                Los ejercicios pueden tener una o varias de las siguientes
+                modalidades:</p>
+              <ul>
+                <li>- Básico</li>
+                <li>- Medio</li>
+                <li>- Avanzado</li>
+              </ul>
+              <p>
+                Realiza y envía tus ejercicios a
+                <a href="contacto@python-granada.es">contacto@python-granada.es</a>
+                y gana puntos. Una vez que consigas suficientes puntos…¡podrás
+                canjearlos por estupendos regalos! Además siempre podrás
+                ver los puntos que tienes y los de tus compañeros en la
+                tabla de clasificación.
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'ejercicios' %}">Lista de ejercicios</a>
+            </div>
+          </div>
+    </div>
+
+    {% regroup ejercicios|dictsort:"fecha" by fecha|date:"F Y" as ejercicios_month %}
+
+    <div class="row">
+      <div class="col s12 m8 offset-m2">
+        {% for mes in ejercicios_month %}
+          <h4>{{mes.grouper}}</h4>
+          {% for ejercicio in mes.list %}
+          <ul class="collapsible" data-collapsible="expandable">
+            <li>
+              <div class="collapsible-header">{{ejercicio.nombre}}</div>
+              <div class="collapsible-body">
+                <p>{{ejercicio.descripcion}}</p>
+                <p>
+                  <a href="{{ejercicio.enlace}}" class="waves-effect waves-light btn"><i class="material-icons right">file_download</i>Descargar!</a>
+                </p>
+              </div>
+            </li>
+          </ul>
+          {% endfor %}
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.collapsible').collapsible({
+    accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+  });
+});
+</script>
+{% endblock %}

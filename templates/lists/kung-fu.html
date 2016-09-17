@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Kung-Fu | Python Granada{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 ">
+      <div class="card ">
+            <div class="card-content">
+              <span class="card-title">¿QUÉ ES PYTHON KUNG-FU?</span>
+              <p>Los ejercicios de Python Kung-fu son sencillos ejercicios para
+                hacer en Python que tienen como objetivo aprender y dominar
+                distintos conceptos de Python y mejorar los que ya sabemos.
+                Los ejercicios pueden tener una o varias de las siguientes
+                modalidades:</p>
+              <ul>
+                <li>- Básico</li>
+                <li>- Medio</li>
+                <li>- Avanzado</li>
+              </ul>
+              <p>
+                Realiza y envía tus ejercicios a
+                <a href="contacto@python-granada.es">contacto@python-granada.es</a>
+                y gana puntos. Una vez que consigas suficientes puntos…¡podrás
+                canjearlos por estupendos regalos! Además siempre podrás
+                ver los puntos que tienes y los de tus compañeros en la
+                tabla de clasificación.
+              </p>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'ejercicios' %}">Lista de ejercicios</a>
+            </div>
+          </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <table class="bordered">
+          <thead>
+            <tr>
+              <th data-field="name">Nombre</th>
+              <th data-field="name">Puntuación</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for persona in personas  %}
+            <tr>
+              <td>{{persona.nombre}}</td>
+              <td>{{persona.puntuacion}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+{% endblock %}
