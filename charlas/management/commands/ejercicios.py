@@ -14,7 +14,12 @@ class Command(BaseCommand):
         with open(jfile, encoding='utf-8') as data_file:
             data = json.load(data_file)
             for ejercicio in data:
-                d = KungFu(nombre = ejercicio["name"], descripcion = ejercicio["description"], enlace = ejercicio["url"], fecha = ejercicio["date"])
-                d.save()
+                d, created = KungFu.objects.get_or_create(nombre = ejercicio["name"], descripcion = ejercicio["description"], enlace = ejercicio["url"], fecha = ejercicio["date"])
+                if created:
+                    print("Created " + d.nombre)
+                    d.save()
+                else:
+                    d.save()
+                    print("Already on database")
 
         print("Task completed")

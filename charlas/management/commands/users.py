@@ -14,7 +14,12 @@ class Command(BaseCommand):
         with open(jfile, encoding='utf-8') as data_file:
             data = json.load(data_file)
             for user in data:
-                d = Progreso(nombre = user["usuario"], puntuacion = user["puntuacion"])
-                d.save()
+                d, created = Progreso.objects.get_or_create(nombre = user["usuario"], puntuacion = user["puntuacion"])
+                if created:
+                    print("Created " + d.nombre)
+                    d.save()
+                else:
+                    d.save()
+                    print("Already on database")
 
         print("Task completed")
