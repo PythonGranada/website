@@ -121,6 +121,7 @@ class ProgresoListView(ListView):
     context_object_name = 'personas'
     model = Progreso
     template_name = 'lists/kung-fu.html'
+    ordering = "-puntuacion"
 
 class KungFuListView(ListView):
     context_object_name = 'ejercicios'
