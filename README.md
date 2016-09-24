@@ -9,7 +9,7 @@ de seguridad. Se puede crear uno desde los ajustes de github.
 La configuración del correo electronico también llama a
 un archivo que no está en el repositorio y que contiene las claves.
 
-Este repositorio esta sincronizado [con esta página](python-granada.es)
+Este repositorio esta sincronizado [con esta página](http://python-granada.es)
 
 ## Progreso
 - [x] Noticias
