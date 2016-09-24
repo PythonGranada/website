@@ -20,3 +20,7 @@
 #logo-container{
   margin-top: 0.1em;
 }
+
+.svg-class svg {
+    fill: white;
+}
