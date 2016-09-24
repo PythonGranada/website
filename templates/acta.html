@@ -1,0 +1,38 @@
+{% extends "base.html" %}{% load markdown_deux_tags %}
+{% block head %}
+  <style media="screen">
+  article ul {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+  article li {
+    list-style-type: decimal;
+    list-style-position: inside;
+  }
+  article ul ul, li ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    margin-left: 15px;
+  }
+  article ul li {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-left: 15px;
+  }
+  article li li {
+    list-style-type: circle;
+    list-style-position: inside;
+  }
+  </style>
+{% endblock %}
+{% block content %}
+<article class="container">
+    <div class="row">
+      <div class="col s12">
+        {{ acta.cuerpo|markdown }}
+      </div>
+    </div>
+</article>
+
+
+{% endblock %}

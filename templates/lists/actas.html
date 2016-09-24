@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Actas | Python Granada{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h2>Últimas reuniones:</h2>
+      <ul>
+        {% for acta in actas %}
+        {% if acta.url %}<li><a href="{% url 'acta' acta.url %}">{{acta.fecha}}</a></li>{% else %}<li><a href="{% url 'acta' acta.fecha %}">{{acta.fecha}}</a></li>{% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
