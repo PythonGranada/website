@@ -10,7 +10,7 @@ from django.views.generic import DetailView, FormView, TemplateView, ListView
 #email
 from django.core.mail import send_mail
 #Models and forms
-from .models import Noticia, Ponente, Progreso, KungFu
+from .models import Noticia, Ponente, Progreso, KungFu, Acta
 from .forms import CharlaForm, ContactoForm
 #external
 from .github_issue import create_issue
@@ -130,3 +130,17 @@ class KungFuListView(ListView):
 
     def get_object(self):
         return KungFu.objects.all().order_by("-fecha")
+
+class ActaListView(ListView):
+    context_object_name = 'actas'
+    model = Acta
+    template_name = 'lists/actas.html'
+
+class ActaDetailView(DetailView):
+    model = Acta
+    slug_field = 'fecha'
+    slug_url_kwarg = 'fecha'
+    template_name = 'acta.html'
+
+class CookiesTemplateView(TemplateView):
+    template_name = 'cookies.html'

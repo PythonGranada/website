@@ -55,6 +55,14 @@ class KungFu(models.Model):
     def __str__(self):
         return self.nombre
 
+class Acta(models.Model):
+    fecha = models.DateField(blank = True, null =True)
+    cuerpo = MarkdownxField()
+    link = models.URLField(blank = True, null =True)
+
+    def __str__(self):
+        return str(self.fecha)
+
 class Progreso(models.Model):
     puntuacion = models.PositiveIntegerField(blank=True, default = 0)
     nombre = models.CharField(max_length=300)
