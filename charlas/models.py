@@ -57,7 +57,7 @@ class KungFu(models.Model):
 
 class Acta(models.Model):
     fecha = models.DateField(blank = True, null =True)
-    cuerpo = MarkdownxField()
+    cuerpo = MarkdownxField(blank = True, null =True)
     link = models.URLField(blank = True, null =True)
 
     def __str__(self):
