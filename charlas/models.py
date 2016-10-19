@@ -11,9 +11,9 @@ from sorl.thumbnail import ImageField
 class Noticia(models.Model):
     nombre = models.CharField(blank=True, max_length=250)
     slug = models.SlugField(blank = True)
-    fecha = models.DateTimeField(blank=True, default=datetime.datetime.now)
+    fecha = models.DateTimeField(blank=True)
     cuerpo = MarkdownxField()
-    created = models.DateTimeField(auto_now_add=False)
+    created = models.DateTimeField()
 
     def save(self, *args, **kwargs):
         if not self.id:
