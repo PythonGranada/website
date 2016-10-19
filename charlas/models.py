@@ -13,7 +13,7 @@ class Noticia(models.Model):
     slug = models.SlugField(blank = True)
     fecha = models.DateTimeField(blank=True, default=datetime.datetime.now)
     cuerpo = MarkdownxField()
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=False)
 
     def save(self, *args, **kwargs):
         if not self.id:
