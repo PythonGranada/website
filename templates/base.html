@@ -1,17 +1,24 @@
 {% load staticfiles %}<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>{% block title %}{% endblock %}</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href={% static 'css/materialize.min.css' %} type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href={% static 'css/style.css' %} type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="{% static 'css/animation.css' %}"><!--[if IE 7]><link rel="stylesheet" href="/static/css/fontello-ie7.css"><![endif]-->
-  <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
-  {% block head %}{% endblock %}
+<html lang="es">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+      #logo{
+         margin-top: -0.25em;
+      }
+    </style>
+    <link rel="shortcut icon" type="image/png" href="{% static 'icons/logo_carlos.png' %}"/>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href={% static 'css/materialize.min.css' %} type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href={% static 'css/style.css' %} type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" href="{% static 'css/animation.css' %}"><!--[if IE 7]><link rel="stylesheet" href="/static/css/fontello-ie7.css"><![endif]-->
+    <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
+    {% block head %}{% endblock %}
   <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
   <script type="text/javascript">
       window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":"http://python-granada.es/cookies","theme":"dark-floating"};
@@ -23,7 +30,9 @@
 </head>
 <body>
   <nav class="indigo lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="{% static 'icons/logo_python.svg' %}" type="image/svg+xml" alt="" /></a>
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo"><img id="logo" src="{% static 'icons/logo_carlos.png' %}"></a>
+ 
       <ul class="right hide-on-med-and-down">
         {% include "links.html" %}
       </ul>
