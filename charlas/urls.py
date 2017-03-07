@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'ejercicios/$', charlas.KungFuListView.as_view(), name = "ejercicios"),
     url(r'^actas/$', charlas.ActaListView.as_view(), name="actas"),
     url(r'^actas/(?P<fecha>[\w-]+)$', charlas.ActaDetailView.as_view(), name="acta"),
+    url(r'^exito/$', charlas.ExitoTemplateView.as_view(), name="exito"),
 ]

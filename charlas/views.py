@@ -23,9 +23,10 @@ class HomeView(DetailView):
 
     def get_object(self, queryset=None):
         now = timezone.now()
-        query = Noticia.objects.all().order_by("-fecha")[0]
+        query = Noticia.objects.all()
         #Comprobar que el evento no haya pasado
-        if query: #SI hay almenos una noticia
+        if query.count()>0: #SI hay almenos una noticia
+            query = Noticia.objects.all().order_by("-fecha")[0]
             date = query.fecha
             if now >= date: #si la fecha es posterior a la del evento
                 return Noticia.objects.none() #No devuelve nada
@@ -40,7 +41,7 @@ class HomeView(DetailView):
 class FormularioView(FormView):
     template_name = "enviar-charla.html"
     form_class = CharlaForm
-    success_url = "home"
+    success_url = "exito"
 
     def form_valid(self, form):
         #Get data from form
@@ -96,7 +97,7 @@ class PonenteDetailView(DetailView):
 class ContactoFormView(FormView):
     template_name = "formularios/contacto.html"
     form_class = ContactoForm
-    success_url = "home"
+    success_url = "exito"
 
     def form_valid(self, form):
         #Get data from form
@@ -144,3 +145,6 @@ class ActaDetailView(DetailView):
 
 class CookiesTemplateView(TemplateView):
     template_name = 'cookies.html'
+
+class ExitoTemplateView(TemplateView):
+    template_name = 'exito.html'
