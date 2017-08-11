@@ -1,12 +1,13 @@
 #Funcion que crea el issue con los datos proporcionados
 import requests
-from .github_token import g_token
+import os
 
+g_token = os.environ.get("GITHUB","")
 def create_issue(titulo, body):
     org = "PythonGranada"
     repo = "organization"
 
-    url = "https://api.github.com/repos/{}/{}/issues".format(org, repo)
+    url = "https://api.github.com/repos/{}/{}/issues?access_token={}".format(org, repo,g_token)
 
     issue = {'title': titulo,
     'body': body,
@@ -14,7 +15,6 @@ def create_issue(titulo, body):
 
     headers = {
     'Content-Type':'application/json',
-    'Authorization': 'token %s' % g_token,
     }
 
     r=requests.post(url, headers=headers, json=issue);
