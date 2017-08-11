@@ -1,13 +1,10 @@
-#Página Web de Python-Granada
+# Página Web de Python-Granada
 
 Este repositorio está destinado a la construcción de la página de Python-Granada usando Django.
 
 Importante:
-`charlas/github_issue.py` llama a un archivo con el token. Este es privado por razones
-de seguridad. Se puede crear uno desde los ajustes de github.
 
-La configuración del correo electronico también llama a
-un archivo que no está en el repositorio y que contiene las claves.
+Se ha añadido un documento de configuración con indicaciones.
 
 Este repositorio esta sincronizado [con esta página](http://python-granada.es)
 
