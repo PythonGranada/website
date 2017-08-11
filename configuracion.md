@@ -4,10 +4,11 @@ Se recomienda trabajar con un entorno vitual.
 
 ## Secret key
 
-La clave secreta que usa Django se almacena en una variable de entorno.
+La clave secreta que usa Django se almacena en una variable de entorno, `SECRET_KEY`.
 Imprescindible asignar una en producción.
+También el estado de DEBUG con el nombre `DEBUG`
 
-** Durante la fase de desarrollo no hace falta crear una variable de entorno **
+**Durante la fase de desarrollo no hace falta crear una variable de entorno**
 
 ## Integración con github
 
@@ -24,7 +25,7 @@ Es suficiente con crear una variable con este nombre y que contenga la clave.
 Documentación de github sobre la [creación de issues](https://developer.github.com/v3/issues/#create-an-issue)
 Para obtener la clave vamos a la configuración de nuestro perfil > Personal access tokens
 
-** Sin esta clave el servicio no funciona **
+**Sin esta clave el servicio correspondiente no funciona**
 
 ## Envio de e-mail
 
@@ -34,16 +35,16 @@ configurar la información básica de acuerdo a la
 
 Las variables de entorno tienen los nombres
 
-"""
-EMAIL_BACKEND
-EMAIL_HOST
-EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD
-EMAIL_PORT
-EMAIL_USE_TLS
-"""
+
+    EMAIL_BACKEND
+    EMAIL_HOST
+    EMAIL_HOST_USER
+    EMAIL_HOST_PASSWORD
+    EMAIL_PORT
+    EMAIL_USE_TLS
+
 
 El el archivo `views.py`, en la clase que controla el envio del e-mail, está
 la lista de destinatarios del mismo.
 
-** Sin estas variables el servicio no funciona **
+**Sin estas variables el servicio correspondiente no funciona**
