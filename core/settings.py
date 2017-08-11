@@ -24,10 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True
 
 #Por motivos de seguridad la key usada es distinta para produccion
-if DEBUG == False:
-    from .secret import SECRET_KEY
-else:
-    SECRET_KEY = "l9a(8xlqr)d%ph1cpnml#!qniyst57k4y%ffc=l4dq=&n=f4l#"
+SECRET_KEY = os.environ.get("SECRET_KEY","l9a(8xlqr)d%ph1cpnml#!qniyst57k4y%ffc=l4dq=&n=f4l#")
+
 
 ALLOWED_HOSTS = ['localhost']
 
@@ -159,18 +157,12 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 ####
-"""
-Email conf is imported from secret.py
-"""
 
-from .secret import (EMAIL_BACKEND, EMAIL_HOST,
-                    EMAIL_HOST_USER,
-                    EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS)
-###
+# Configuración del servicio de email
 
-EMAIL_BACKEND = EMAIL_BACKEND
-EMAIL_HOST = EMAIL_HOST
-EMAIL_HOST_USER = EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
-EMAIL_PORT = EMAIL_PORT
-EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND","")
+EMAIL_HOST = os.environ.get("EMAIL_HOST","")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER","")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD","")
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT",""))
+EMAIL_USE_TLS = bool(os.environ.get("EMAIL_USE_TLS",""))
