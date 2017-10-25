@@ -4,8 +4,10 @@ import os
 
 g_token = os.environ.get("GITHUB","")
 def create_issue(titulo, body):
-    org = "PythonGranada"
-    repo = "organization"
+    #org = "PythonGranada"
+    #repo = "organization"
+    org = "yabirgb"
+    repo = "website"
 
     url = "https://api.github.com/repos/{}/{}/issues?access_token={}".format(org, repo,g_token)
 
