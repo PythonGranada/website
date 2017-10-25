@@ -1,3 +1,5 @@
+import os
+
 from django.utils import timezone
 
 from django.conf import settings
@@ -13,7 +15,9 @@ from django.core.mail import send_mail
 from .models import Noticia, Ponente, Progreso, KungFu, Acta
 from .forms import CharlaForm, ContactoForm
 #external
-from .github_issue import create_issue
+from github_issue import create_issue
+
+g_token = os.environ.get("GITHUB","")
 
 
 #Vista que renderiza el proximo evento fijado en las noticias
@@ -50,10 +54,17 @@ class FormularioView(FormView):
         titulo = form.cleaned_data['titulo']
         resumen = form.cleaned_data['resumen']
 
+        from_email = settings.EMAIL_HOST_USER
+        to_list = ["yabirgb@gmail.com"]
+        from_email = "me@yabirgb.com"
+        #send_mail(subject, message, from_email, to_list, fail_silently=False)
+
+
         #build the issue body from the data provided
         body = resumen + "\n\n" + nombre + " - " + email
         create_issue(titulo, body)
 
+        send_mail(titulo, body, from_email, to_list, fail_silently=False)
         #Return to the success_url
         return HttpResponseRedirect(reverse_lazy(self.get_success_url()))
 
